@@ -14,7 +14,7 @@
   }
 </script>
 
-<Navbar class="bg-gray-100">
+<Navbar class="sticky z-[10] top-0 bg-gray-100">
   <NavBrand href="Navigationleiste">
     <img src="/Steel_Pulse_.png" class="me-3 ml-5 h-6 sm:h-9" alt="steelPulse" />
     <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Steelpulse</span>
