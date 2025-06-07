@@ -1,20 +1,21 @@
 import adapter from '@sveltejs/adapter-static';
 
+const dev = process.argv.includes('dev');
+
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	kit: {
-		// adapter-auto only supports some environments, see https://svelte.dev/docs/kit/adapter-auto for a list.
-		// If your environment is not supported, or you settled on a specific environment, switch out the adapter.
-		// See https://svelte.dev/docs/kit/adapters for more information about adapters.
 		adapter: adapter({
-			pages: 'build',
-			assets: 'build',
-			fallback: 'index.html',
-			precompress: false,
-			strict: true
+			pages: 'build', // Explizit das Build-Verzeichnis angeben
+			assets: 'build', // Explizit das Build-Verzeichnis angeben
+			fallback: 'index.html' // Wichtig für SPA-ähnliches Verhalten und direkte Links
 		}),
 		paths: {
-			base: process.argv.includes('dev') ? '' : process.env.BASE_PATH
+			// Wenn deine Repository 'wavemanager.github.io' heißt (Auslieferung im Root),
+			// dann muss base für den Production Build '' sein.
+			// Wenn deine Repository z.B. 'my-project' heißt (Auslieferung unter /my-project/),
+			// dann muss base '/my-project' sein.
+			base: dev ? '' : '' // HIER ANPASSEN, FALLS DEINE REPO ANDERS HEISST ALS wavemanager.github.io
 		}
 	}
 };
