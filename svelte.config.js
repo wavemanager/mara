@@ -10,10 +10,7 @@ const config = {
 			pages: 'build',
 			assets: 'build',
 			fallback: 'index.html'
-		}),
-		paths: {
-			base: '/wavemanager.github.io' // hier deinen Repo-Namen einsetzen!
-		}
+		})
 	}
 };
 
