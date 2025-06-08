@@ -1,20 +1,57 @@
-<div
-  class="flex flex-1 w-full flex-col items-center justify-center text-center px-4 py-20 bg-gradient-to-r from-green-50/50 via-teal-50 to-green-50/50 dark:from-gray-800 dark:via-gray-700 dark:to-gray-800">
-  <h1
-    class="mx-auto max-w-4xl font-display text-5xl font-bold tracking-normal text-white-300 dark:text-gray-300 sm:text-7xl">
-    Revolutionize Your Insurance
-    <span class="relative whitespace-nowrap text-white-600 dark:text-gray-300">Operations</span>
-    <span class="relative whitespace-nowrap text-green-500 dark:text-orange-300">
-      <svg aria-hidden="true" viewBox="0 0 418 42" class="absolute top-2/3 left-0 h-[0.58em] w-full fill-orange-500 dark:fill-orange-300/60" preserveAspectRatio="none">
-        <path d="M203.371.916c-26.013-2.078-76.686 1.963-124.73 9.946L67.3 12.749C35.421 18.062 18.2 21.766 6.004 25.934 1.244 27.561.828 27.778.874 28.61c.07 1.214.828 1.121 9.595-1.176 9.072-2.377 17.15-3.92 39.246-7.496C123.565 7.986 157.869 4.492 195.942 5.046c7.461.108 19.25 1.696 19.17 2.582-.107 1.183-7.874 4.31-25.75 10.366-21.992 7.45-35.43 12.534-36.701 13.884-2.173 2.308-.202 4.407 4.442 4.734 2.654.187 3.263.157 15.593-.780 35.401-2.686 57.944-3.488 88.365-3.143 46.327.526 75.721 2.23 130.788 7.584 19.787 1.924 20.814 1.98 24.557 1.332l.066-.011c1.201-.203 1.53-1.825.399-2.335-2.911-1.31-4.893-1.604-22.048-3.261-57.509-5.556-87.871-7.36-132.059-7.842-23.239-.254-33.617-.116-50.627.674-11.629.540-42.371 2.494-46.696 2.967-2.359.259 8.133-3.625 26.504-9.810 23.239-7.825 27.934-10.149 28.304-14.005 .417-4.348-3.529-6-16.878-7.066Z"></path>
-      </svg>
-      <span class="relative">with AI</span>
-    </span>
-  </h1>
-  <h2 class="mx-auto mt-12 max-w-xl text-lg sm:text-white-400 text-white-500 dark:text-gray-300 leading-7">
-    Experience the future of insurance with our cutting-edge AI tool. From underwriting to claims processing, our
-    intelligent system streamlines and enhances every aspect of your insurance operations.
-  </h2>
-  <a class="bg-orange-600 dark:bg-gray-800 rounded-xl text-white dark:text-gray-300 font-medium px-4 py-3 sm:mt-10 mt-8 hover:bg-orange-500 dark:hover:bg-gray-600 transition"
-    href="">Get started</a>
-</div>
+<script>
+	const image =
+		'https://images.unsplash.com/photo-1463171515643-952cee54d42a?q=80&w=450&h=190&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
+
+	import { animate } from 'motion';
+	import { onMount } from 'svelte';
+
+	let element;
+
+	onMount(() => {
+		animate(element, { opacity: [0, 1], y: [-50, 0] }, { duration: 0.8 });
+	});
+</script>
+
+<section class="relative">
+	<!-- HINZUGEFÜGT: relative als Referenzpunkt -->
+	<div class="bg-blue-900 text-white py-20 xl:px-100 lg:px-50 sm:px-25">
+		<!-- Gradient-Container: Absolut positioniert im Hintergrund -->
+		<div
+			aria-hidden="true"
+			class="absolute inset-0 h-max w-full m-auto grid grid-cols-2 -space-x-52 z-0 pointer-events-none"
+		>
+			<div class="blur-[106px] h-56 bg-gradient-to-br to-purple-400 from-blue-700"></div>
+			<div class="blur-[106px] h-32 bg-gradient-to-r from-cyan-400 to-indigo-600"></div>
+		</div>
+
+		<!-- Haupt-Inhalt: Liegt über den Gradienten -->
+		<div class="relative z-10">
+			<div class="container mx-auto flex flex-col md:flex-row items-center my-12 md:my-24">
+				<div class="flex flex-col w-full lg:w-2/3 justify-center items-start p-8">
+					<h1 class="xl:text-5xl md:text-3xl text-amber-300">TechFest</h1>
+					<h2
+						class="text-3xl md:text-5xl leading-relaxed md:leading-snug mb-2 animate-fade-up animate-delay-[20ms]"
+					>
+						Space : The Timeless Infinity
+					</h2>
+					<p class="text-sm md:text-base text-gray-50 mb-4">
+						Explore your favourite events and register now to showcase your talent and win exciting
+						prizes.
+					</p>
+					<a
+						bind:this={element}
+						href="#"
+						class="bg-transparent hover:bg-yellow-300 text-yellow-300 hover:text-black rounded shadow hover:shadow-lg py-2 px-4 border border-yellow-300 hover:border-transparent"
+					>
+						Explore Now
+					</a>
+				</div>
+				<img
+					src={image}
+					alt=""
+					class="rounded-3xl animate-fade-left animate-delay-300 animate-ease-in"
+				/>
+			</div>
+		</div>
+	</div>
+</section>
